@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  database:
+    image: postgres:16-alpine
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: sync-geovelo
+      POSTGRES_USER: sync-geovelo
+      POSTGRES_PASSWORD: sync-geovelo
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
