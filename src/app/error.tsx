@@ -24,13 +24,11 @@ export default function Error({
   return (
     <CardCentered>
       <CardHeader>
-        <CardTitle>Something went wrong!</CardTitle>
-        <CardDescription>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </CardDescription>
+        <CardTitle>Quelque chose n'a pas fonctionné !</CardTitle>
+        <CardDescription>Veuillez réessayer ultérieurement.</CardDescription>
       </CardHeader>
       <CardFooter>
-        <Button onClick={() => reset()}>Try again</Button>
+        <Button onClick={() => reset()}>Recommencer</Button>
       </CardFooter>
     </CardCentered>
   );

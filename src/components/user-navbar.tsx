@@ -30,8 +30,10 @@ export default function UserNavbar({
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-40" align="end" forceMount>
         <DropdownMenuGroup>
-          <DropdownMenuItem>Settings</DropdownMenuItem>
-          <DropdownMenuItem onClick={() => signOut()}>Log out</DropdownMenuItem>
+          <DropdownMenuItem>Paramètres</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => signOut()}>
+            Se déconnecter
+          </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

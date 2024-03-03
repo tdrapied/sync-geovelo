@@ -13,9 +13,11 @@ export default async function Dashboard() {
     return (
       <CardCentered>
         <CardHeader>
-          <CardTitle>Unverified account</CardTitle>
+          <CardTitle>Compte non vérifié</CardTitle>
           <CardDescription>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Votre compte n'a pas encore été vérifié. <br />
+            Un administrateur doit vérifier votre compte avant de pouvoir
+            utiliser l'application.
           </CardDescription>
         </CardHeader>
       </CardCentered>
@@ -24,7 +26,7 @@ export default async function Dashboard() {
 
   return (
     <div className="container mt-10">
-      <h1 className="text-4xl font-bold">Hello, {session.user?.name} !</h1>
+      <h1 className="text-4xl font-bold">Bonjour, {session.user?.name} !</h1>
       <div className="flex justify-center items-center h-96 text-2xl">
         In progress ...
       </div>

@@ -7,7 +7,7 @@ export default async function Component() {
   return (
     <header className="flex items-center">
       <nav className="container h-14 flex items-center justify-between z-10">
-        <div className="text-xl font-bold">sync-geovelo</div>
+        <div className="text-xl font-bold">{process.env.npm_package_name}</div>
         <UserNavbar
           username={session.user.name ?? ""}
           image={session.user.image ?? undefined}
