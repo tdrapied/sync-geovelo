@@ -13,8 +13,4 @@ const nextConfig = {
   }
 };
 
-export default nextTranslate({
-  webpack: (config, { isServer, webpack }) => {
-    return config;
-  }
-});
+export default nextTranslate(nextConfig);
