@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/form";
 import { updateGeoveloAccount } from "@/app/actions/updateGeoveloAccount";
 import { IGeoveloUser } from "@/interfaces/types";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
 
 const formSchema = z.object({
   id: z.string().min(1),
@@ -30,6 +32,8 @@ const formSchema = z.object({
 });
 
 export default function GeoveloConfigCard({ userId }: { userId: string }) {
+  const { t } = useTranslation("common");
+
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [geoveloProfile, setGeoveloProfile] = useState<IGeoveloUser | null>(
@@ -71,16 +75,22 @@ export default function GeoveloConfigCard({ userId }: { userId: string }) {
     return (
       <CardCentered>
         <CardHeader>
-          <CardTitle>Compte Geovelo ajouté</CardTitle>
+          <CardTitle>{t("card-title-geovelo-success")}</CardTitle>
           <CardDescription>
-            Vous êtes maintenant relié avec le compte
-            <b>{geoveloProfile.username}</b>.
-            <br />
-            Vous pouvez dorénavant utiliser l'application.
+            <Trans
+              i18nKey="common:card-description-geovelo-success"
+              values={{
+                username: geoveloProfile.username,
+              }}
+              components={{
+                b: <b />,
+                br: <br />,
+              }}
+            />
           </CardDescription>
         </CardHeader>
         <CardFooter>
-          <Button onClick={() => window.location.reload()}>Suivant</Button>
+          <Button onClick={() => window.location.reload()}>{t("next")}</Button>
         </CardFooter>
       </CardCentered>
     );
@@ -89,10 +99,14 @@ export default function GeoveloConfigCard({ userId }: { userId: string }) {
   return (
     <CardCentered>
       <CardHeader>
-        <CardTitle>Configurez votre compte Geovelo</CardTitle>
+        <CardTitle>{t("card-title-geovelo-config")}</CardTitle>
         <CardDescription>
-          Pour commencer, veuillez configurer votre compte Geovelo. <br />
-          Pour ce faire, renseignez votre token.
+          <Trans
+            i18nKey="common:card-description-geovelo-config"
+            components={{
+              br: <br />,
+            }}
+          />
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -103,7 +117,7 @@ export default function GeoveloConfigCard({ userId }: { userId: string }) {
               name="id"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>ID de l'utilisateur</FormLabel>
+                  <FormLabel>{t("user-id")}</FormLabel>
                   <FormControl>
                     <Input placeholder="123456789" {...field} />
                   </FormControl>
@@ -116,7 +130,7 @@ export default function GeoveloConfigCard({ userId }: { userId: string }) {
               name="token"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Token</FormLabel>
+                  <FormLabel>{t("token")}</FormLabel>
                   <FormControl>
                     <Input placeholder="XXXXXXXXXXXX" {...field} />
                   </FormControl>
@@ -124,10 +138,10 @@ export default function GeoveloConfigCard({ userId }: { userId: string }) {
               )}
             />
 
-            {error && <p className="text-red-500">Identifiant invalide</p>}
+            {error && <p className="text-red-500">{t("invalid-id")}</p>}
 
             <Button type="submit" disabled={loading}>
-              Valider
+              {t("submit")}
             </Button>
           </form>
         </Form>

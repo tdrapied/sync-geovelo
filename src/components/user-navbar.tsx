@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { signOut } from "next-auth/react";
+import useTranslation from "next-translate/useTranslation";
 
 export default function UserNavbar({
   username,
@@ -18,6 +19,8 @@ export default function UserNavbar({
   username: string;
   image?: string;
 }) {
+  const { t } = useTranslation("common");
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -30,9 +33,9 @@ export default function UserNavbar({
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-40" align="end" forceMount>
         <DropdownMenuGroup>
-          <DropdownMenuItem>Paramètres</DropdownMenuItem>
+          <DropdownMenuItem>{t("settings")}</DropdownMenuItem>
           <DropdownMenuItem onClick={() => signOut()}>
-            Se déconnecter
+            {t("logout")}
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
