@@ -3,8 +3,13 @@ import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import prisma from "@/lib/prisma";
 import CardCentered from "@/components/atoms/card-centered";
 import GeoveloConfigCard from "@/components/atoms/geovelo-config-card";
+import useTranslation from "next-translate/useTranslation";
+import Trans from "next-translate/Trans";
+import React from "react";
 
 export default async function Dashboard() {
+  const { t } = useTranslation("common");
+
   const session = await getRequiredAuthSession();
   const user = await prisma.user.findFirstOrThrow({
     where: { id: session.user.id },
@@ -14,11 +19,14 @@ export default async function Dashboard() {
     return (
       <CardCentered>
         <CardHeader>
-          <CardTitle>Compte non vérifié</CardTitle>
+          <CardTitle>{t("card-title-unverified")}</CardTitle>
           <CardDescription>
-            Votre compte n'a pas encore été vérifié. <br />
-            Un administrateur doit vérifier votre compte avant de pouvoir
-            utiliser l'application.
+            <Trans
+              i18nKey="common:card-description-unverified"
+              components={{
+                br: <br />,
+              }}
+            />
           </CardDescription>
         </CardHeader>
       </CardCentered>

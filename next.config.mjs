@@ -1,3 +1,5 @@
+import nextTranslate from "next-translate-plugin";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   redirects() {
@@ -11,4 +13,8 @@ const nextConfig = {
   }
 };
 
-export default nextConfig;
+export default nextTranslate({
+  webpack: (config, { isServer, webpack }) => {
+    return config;
+  }
+});

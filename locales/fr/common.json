@@ -1,0 +1,21 @@
+{
+  "settings": "Paramètres",
+  "logout": "Se deconnecter",
+
+  "submit": "Valider",
+  "next": "Suivant",
+
+  "user-id": "Identifiant de l'utilisateur",
+  "token": "Token",
+
+  "invalid-id": "Identifiant invalide",
+
+  "card-title-unverified": "Compte non vérifié",
+  "card-description-unverified": "Votre compte n'a pas encore été vérifié. <br /> Un administrateur doit vérifier votre compte avant de pouvoir utiliser l'application.",
+
+  "card-title-geovelo-config": "Configurez votre compte Geovelo",
+  "card-description-geovelo-config": " Pour commencer, veuillez configurer votre compte Geovelo. <br /> Pour ce faire, renseignez votre token.",
+
+  "card-title-geovelo-success": "Compte Geovelo ajouté",
+  "card-description-geovelo-success": "Vous êtes maintenant relié avec le compte <b>{{username}}</b>. <br /> Vous pouvez dorénavant utiliser l'application."
+}
