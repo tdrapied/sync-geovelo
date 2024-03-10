@@ -4,6 +4,7 @@
 
   "submit": "Valider",
   "next": "Suivant",
+  "reset": "Recommencer",
 
   "user-id": "Identifiant de l'utilisateur",
   "token": "Token",
@@ -17,5 +18,8 @@
   "card-description-geovelo-config": " Pour commencer, veuillez configurer votre compte Geovelo. <br /> Pour ce faire, renseignez votre token.",
 
   "card-title-geovelo-success": "Compte Geovelo ajouté",
-  "card-description-geovelo-success": "Vous êtes maintenant relié avec le compte <b>{{username}}</b>. <br /> Vous pouvez dorénavant utiliser l'application."
+  "card-description-geovelo-success": "Vous êtes maintenant relié avec le compte <b>{{username}}</b>. <br /> Vous pouvez dorénavant utiliser l'application.",
+
+  "card-title-error": "Quelque chose n'a pas fonctionné !",
+  "card-description-error": "Veuillez réessayer ultérieurement."
 }

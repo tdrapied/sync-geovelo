@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import CardCentered from "@/components/atoms/card-centered";
 import { Button } from "@/components/ui/button";
+import useTranslation from "next-translate/useTranslation";
 
 export default function Error({
   error,
@@ -17,6 +18,8 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const { t } = useTranslation("common");
+
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -24,11 +27,11 @@ export default function Error({
   return (
     <CardCentered>
       <CardHeader>
-        <CardTitle>Quelque chose n'a pas fonctionné !</CardTitle>
-        <CardDescription>Veuillez réessayer ultérieurement.</CardDescription>
+        <CardTitle>{t("card-title-error")}</CardTitle>
+        <CardDescription>{t("card-description-error")}</CardDescription>
       </CardHeader>
       <CardFooter>
-        <Button onClick={() => reset()}>Recommencer</Button>
+        <Button onClick={() => reset()}>{t("reset")}</Button>
       </CardFooter>
     </CardCentered>
   );
