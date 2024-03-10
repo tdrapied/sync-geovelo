@@ -2,6 +2,7 @@ import { getRequiredAuthSession } from "@/lib/auth";
 import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import prisma from "@/lib/prisma";
 import CardCentered from "@/components/atoms/card-centered";
+import GeoveloConfigCard from "@/components/atoms/geovelo-config-card";
 
 export default async function Dashboard() {
   const session = await getRequiredAuthSession();
@@ -22,6 +23,10 @@ export default async function Dashboard() {
         </CardHeader>
       </CardCentered>
     );
+  }
+
+  if (!user.geoveloToken) {
+    return <GeoveloConfigCard userId={session.user.id} />;
   }
 
   return (

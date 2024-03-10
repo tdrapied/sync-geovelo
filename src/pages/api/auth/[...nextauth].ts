@@ -17,14 +17,6 @@ export const authOptions: AuthOptions = {
           scope: "read_all",
         },
       },
-      profile(profile) {
-        return {
-          id: profile.id,
-          name: profile.firstname,
-          email: profile.email,
-          image: profile.profile_medium,
-        };
-      },
       token: {
         async request({ client, params, checks, provider }) {
           const tokens = await client.oauthCallback(

@@ -6,6 +6,8 @@ CREATE TABLE "User" (
     "emailVerified" TIMESTAMP(3),
     "image" TEXT,
     "isVerified" BOOLEAN NOT NULL DEFAULT false,
+    "geoveloUserId" TEXT,
+    "geoveloUsername" TEXT,
     "geoveloToken" TEXT,
     "syncEnabled" BOOLEAN NOT NULL DEFAULT true,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
