@@ -2,10 +2,9 @@
 
 import GeoveloClient from "@/lib/clients/geovelo";
 import { IGeoveloUser } from "@/interfaces/types";
-import { PrismaClient } from "@prisma/client";
+import prisma from "@/lib/prisma";
 
 const geoveloClient = new GeoveloClient();
-const prisma = new PrismaClient();
 
 export async function updateGeoveloAccount(
   userId: string,
