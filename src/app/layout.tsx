@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: process.env.npm_package_name,
+  title: "sync-geovelo",
   robots: {
     index: false,
     follow: false,
