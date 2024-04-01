@@ -44,7 +44,10 @@ async function syncByUser(user: User & { accounts: Account[] }) {
   // If the last sync date is greater than 2 days, we set yesterday to the last sync date
   let lastSync = user.lastSyncAt;
   if (!lastSync || lastSync > maxDate) {
-    lastSync = maxDate;
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    lastSync = yesterday;
   }
 
   const activities = await stravaClient.fetchActivities(stravaToken, {
