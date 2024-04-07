@@ -25,7 +25,7 @@ export default async function handler(
 
   // Get all strava activities for each user
   for (const user of users) {
-    syncByUser(user);
+    await syncByUser(user);
   }
 
   response.status(200).json({ success: true });
