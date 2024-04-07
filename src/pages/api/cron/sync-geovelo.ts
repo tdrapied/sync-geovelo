@@ -43,7 +43,7 @@ async function syncByUser(user: User & { accounts: Account[] }) {
 
   // If the last sync date is greater than 2 days, we set yesterday to the last sync date
   let lastSync = user.lastSyncAt;
-  if (!lastSync || lastSync > maxDate) {
+  if (!lastSync || maxDate > lastSync) {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
 
@@ -94,6 +94,7 @@ async function importGPXByActivity(
 
   try {
     await geoveloClient.importGPX(user.geoveloToken!, activity.name, gpx);
+    console.log(`Imported activity "${activity.id}" by ${user.name}`);
   } catch (err) {
     /* ignore */
   }
